@@ -3,6 +3,10 @@ const app = express();
 
 app.use(express.json());
 
+app.get('/', (req, res) =>{
+  res.send('Home');
+});
+
 // POST route for /bfhl
 app.post('/bfhl', (req, res) => {
     try {
@@ -40,6 +44,7 @@ app.post('/bfhl', (req, res) => {
 
         // Send response
         res.status(200).json(response);
+        res.send(response);
     } catch (error) {
         // Handle exceptions gracefully
         console.error(error);
